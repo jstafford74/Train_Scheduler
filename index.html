@@ -16,8 +16,10 @@
         <!-- Moment.js Reference -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Roboto|Source+Sans+Pro&display=swap"
             rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
         <!-- Font Awesome CSS Icons (For cool glyphicons) -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <style>
@@ -33,28 +35,34 @@
 
             #arriv {
                 border: black solid 1px;
+                font-family: 'Space Mono', monospace;
             }
 
-            #depart{
-                border:orange solid 1px;
+            #train {
+                border: black solid 1px;
+                font-family: 'Space Mono', monospace;
             }
 
-            .secline{
-            width: 112px;
-            height: 47px;
-            border-bottom: 2px solid red;
-            position: absolute;
-            text-align: center;
-            }
-            
-            .minline{
-            width: 30px;
-            height: 27px;
-            border-bottom: 2px solid blue;
-            position: absolute;
-            text-align: center;
+            #depart {
+                border: orange solid 1px;
+                font-family: 'Space Mono', monospace;
             }
 
+            .secline {
+                width: 112px;
+                height: 47px;
+                border-bottom: 2px solid red;
+                position: absolute;
+                text-align: center;
+            }
+
+            .minline {
+                width: 30px;
+                height: 27px;
+                border-bottom: 2px solid blue;
+                position: absolute;
+                text-align: center;
+            }
         </style>
     </head>
 
@@ -68,23 +76,23 @@
             <div class="secline"></div>
             <div class="minline"></div>
             <div class="hero-circle">
-                    <div class="hero-face">
-                        <div id="date" class="hero-date"></div>
-                        <div id="hour" class="hero-hour"></div>
-                        <div id="minute" class="hero-minute"></div>
-                        <div id="second" class="hero-second"></div>
-                    </div>
+                <div class="hero-face">
+                    <div id="date" class="hero-date"></div>
+                    <div id="hour" class="hero-hour"></div>
+                    <div id="minute" class="hero-minute"></div>
+                    <div id="second" class="hero-second"></div>
                 </div>
+            </div>
         </div>
 
-        <!--Current Employees-->
+        <!--Train Schedule-->
         <div class="container">
             <div class="row">
 
                 <div class="col-6" id="arriv">ARRIVALS
 
                     <div class="row">
-                        <div class="col-3" id="arriv">Train #</div>
+                        <div class="col-3" id="train">Train #</div>
                         <div class="col-3" id="arriv">Train Name</div>
                         <div class="col-3" id="arriv">Origin</div>
                         <div class="col-3" id="arriv">Arrival Time</div>
@@ -95,7 +103,7 @@
                 <div class="col-6" id="depart">DEPARTURES
 
                     <div class="row">
-                        <div class="col-3" id="depart">Train #</div>
+                        <div class="col-3" id="train">Train #</div>
                         <div class="col-3" id="depart">Train Name</div>
                         <div class="col-3" id="depart">Origin</div>
                         <div class="col-3" id="depart">Arrival Time</div>
@@ -104,41 +112,11 @@
                 </div>
 
             </div>
-        </div>
-        <div class="container">
-            <div class="row align-items-start">
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
+
+            <div class="container" id="schedule">
+
             </div>
-            <div class="row align-items-center">
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-            </div>
-            <div class="row align-items-end">
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-            </div>
+
         </div>
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery.js"></script>
@@ -180,45 +158,65 @@
             console.log(convertedDate.format("DDD"));
             console.log(convertedDate.format("dddd"));
 
-            function updateClock(){
-            var now = moment();
-            day = now.format("ddd, hA");
-            second = now.seconds();
-            minute = now.minutes();
-            hour = now.hours();
+            function updateClock() {
+                var now = moment();
+                day = now.format("ddd, hA");
+                second = now.seconds();
+                minute = now.minutes();
+                hour = now.hours();
 
-            $('#hour').text(hour);                                                            //css("transform", "rotate(" + hour + "deg)");
-            $('#minute').text(minute);                                                        //css("transform", "rotate(" + minute + "deg)");
-            $('#second').text(second);                                                        //css("transform", "rotate(" + second + "deg)");
+                $('#hour').text(hour);                                                            //css("transform", "rotate(" + hour + "deg)");
+                $('#minute').text(minute);                                                        //css("transform", "rotate(" + minute + "deg)");
+                $('#second').text(second);                                                        //css("transform", "rotate(" + second + "deg)");
             }
 
-        // setInterval(updateClock,1000);
-        
-        function addSec(){
-            
-            now2 = moment().format('MMMM Do YYYY, h:mm:ss a');
-            $('#date').text(now2);      
-        
-        }
-        function transLate(){
-           
-            var pxl = moment().add(1,'s').format('s') * 10;
-            
-           $('.secline').css('width',pxl + 'px');
-           
-        
-        }
-        
-        var min = moment().format('mm') * 10;
-        $('.minline').css('width',min + 'px');
+            // setInterval(updateClock,1000);
 
-        setInterval(transLate,1000);
+            function addSec() {
 
-        function run(){
-        setInterval(addSec ,1000);
-        }
+                now2 = moment().format('MMMM Do YYYY, h:mm:ss a');
+                $('#date').text(now2);
 
-        run();
+            }
+            function transLate() {
+
+                var pxl = moment().add(1, 's').format('s') * 10;
+
+                $('.secline').css('width', pxl + 'px');
+
+
+            }
+
+            var min = moment().format('mm') * 10;
+            $('.minline').css('width', min + 'px');
+
+            setInterval(transLate, 1000);
+
+            function run() {
+                setInterval(addSec, 1000);
+            }
+
+            function rando() {
+                var number = 1 + Math.floor(Math.random() * 100);
+                console.log(number);
+            }
+
+            function trainNum() {
+                for (i = 0; i < 15; i++) {
+                    var number = 1 + Math.floor(Math.random() * 100);
+                    var rowDiv = $('<div>');
+                    rowDiv.addClass('row');
+                    rowDiv.attr('id', i);
+                    var colDiv = $('<div>');
+                    colDiv.addClass('col-3');
+                    colDiv.attr('id', 'train');
+                    rowDiv.append(colDiv)
+                    $('#schedule').append(rowDiv)
+                    $('#train').text(number);
+                }
+            }
+                trainNum();
+                run();
         </script>
 
 </body>
