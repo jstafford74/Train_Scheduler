@@ -38,6 +38,14 @@
             #depart{
                 border:orange solid 1px;
             }
+
+            .line{
+            width: 112px;
+            height: 47px;
+            border-bottom: 1px solid red;
+            position: absolute;
+            }
+
         </style>
     </head>
 
@@ -48,6 +56,7 @@
         <div class="jumbotron" id="header">
             <h1 class="text-center banner"><strong>Le Train Schedule</strong></h1>
             <h3 class="text-center banner">Locomotif Transport Station</h3>
+            <div class="line"></div>
             <div class="hero-circle">
                     <div class="hero-face">
                         <div id="date" class="hero-date"></div>
@@ -171,9 +180,9 @@
             $('#hour').text(hour);                                                            //css("transform", "rotate(" + hour + "deg)");
             $('#minute').text(minute);                                                        //css("transform", "rotate(" + minute + "deg)");
             $('#second').text(second);                                                        //css("transform", "rotate(" + second + "deg)");
-        }
+            }
 
-        setInterval(updateClock(),1000);
+        // setInterval(updateClock,1000);
         
         function addSec(){
             
@@ -181,7 +190,15 @@
             $('#date').text(now2);      
         
         }
+        function transLate(){
+            var pxl = moment().add(1,'s').format('s')
+           $('.line').css('width',pxl + 'px');
+            
         
+        }
+        
+        setInterval(transLate,1000);
+
         function run(){
         setInterval(addSec ,1000);
         }
