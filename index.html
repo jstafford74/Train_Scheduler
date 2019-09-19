@@ -39,11 +39,20 @@
                 border:orange solid 1px;
             }
 
-            .line{
+            .secline{
             width: 112px;
             height: 47px;
-            border-bottom: 1px solid red;
+            border-bottom: 2px solid red;
             position: absolute;
+            text-align: center;
+            }
+            
+            .minline{
+            width: 30px;
+            height: 27px;
+            border-bottom: 2px solid blue;
+            position: absolute;
+            text-align: center;
             }
 
         </style>
@@ -56,7 +65,8 @@
         <div class="jumbotron" id="header">
             <h1 class="text-center banner"><strong>Le Train Schedule</strong></h1>
             <h3 class="text-center banner">Locomotif Transport Station</h3>
-            <div class="line"></div>
+            <div class="secline"></div>
+            <div class="minline"></div>
             <div class="hero-circle">
                     <div class="hero-face">
                         <div id="date" class="hero-date"></div>
@@ -191,12 +201,17 @@
         
         }
         function transLate(){
-            var pxl = moment().add(1,'s').format('s')
-           $('.line').css('width',pxl + 'px');
+           
+            var pxl = moment().add(1,'s').format('s') * 10;
             
+           $('.secline').css('width',pxl + 'px');
+           
         
         }
         
+        var min = moment().format('mm') * 10;
+        $('.minline').css('width',min + 'px');
+
         setInterval(transLate,1000);
 
         function run(){
