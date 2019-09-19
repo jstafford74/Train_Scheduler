@@ -187,7 +187,7 @@
                 console.log(number);
             }
 
-            function trainNum() {
+            function arrivals() {
                 for (i = 1; i < 16; i++) {
                     var number = 1 + Math.floor(Math.random() * 100);
                     var rowDiv = $('<div>');
@@ -213,7 +213,35 @@
                     $('#arrivtrain' + i ).text(number);
                 }
             }
-                trainNum();
+
+            function departures() {
+                for (i = 1; i < 16; i++) {
+                    var number = 1 + Math.floor(Math.random() * 100);
+                    var rowDiv = $('<div>');
+                    rowDiv.addClass('row');
+                    rowDiv.attr('id', i);
+                    var trnDiv = $('<div>');
+                    trnDiv.addClass('col-3');
+                    trnDiv.attr('id', 'depttrain' + i);
+                    var nmeDiv = $('<div>');
+                    nmeDiv.addClass('col-3');
+                    nmeDiv.attr('id', 'deptname' + i);
+                    var destDiv = $('<div>');
+                    destDiv.addClass('col-3');
+                    destDiv.attr('id', 'destination' + i);
+                    var dtmDiv = $('<div>');
+                    dtmDiv.addClass('col-3');
+                    dtmDiv.attr('id', 'departtime' + i);
+                    rowDiv.append(trnDiv)
+                    rowDiv.append(nmeDiv)
+                    rowDiv.append(destDiv)
+                    rowDiv.append(dtmDiv)
+                    $('#depart').append(rowDiv)
+                    $('#depttrain' + i ).text(number);
+                }
+            }
+                arrivals();
+                departures();
                 run();
         </script>
 
