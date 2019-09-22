@@ -20,14 +20,19 @@
 
 }
 
+.col-1,.col-3,.col-4,.col-6{
+    border: black solid 1px;
+}
 
-
+.col-4{
+    text-align: left;
+}
 
 
 #arrivtrain {
     border: black solid 1px;
     font-family: 'Space Mono', monospace;
-    text-align: center;
+    text-align: left;
 
 }
 

@@ -44,7 +44,8 @@ function arrivals() {
         var number = 1 + Math.floor(Math.random() * 100);
         var randMin = Math.floor(Math.random() * 60);
         var randHr = Math.floor(Math.random() * 5);
-        var future = moment().add(randHr,'h').add(randMin,'m').format('H:mm');
+        var future = moment().add(randHr,'h').add(randMin,'m');
+        var mTa = moment(future).diff(moment(),'minutes');
         var rowDiv = $('<div>');
         rowDiv.addClass('row');
         rowDiv.attr('id', i);
@@ -52,21 +53,26 @@ function arrivals() {
         trnDiv.addClass('col-1');
         trnDiv.attr('id', 'arrivtrain' + i);
         var nmeDiv = $('<div>');
-        nmeDiv.addClass('col-4');
+        nmeDiv.addClass('col-3');
         nmeDiv.attr('id', 'arrivname' + i);
         nmeDiv.text(trainNames[i - 1]);
         var orgDiv = $('<div>');
-        orgDiv.addClass('col-4');
+        orgDiv.addClass('col-3');
         orgDiv.attr('id', 'arrivorigin' + i);
         orgDiv.text(places[i - 1]);
         var atmDiv = $('<div>');
         atmDiv.addClass('col-3');
         atmDiv.attr('id', 'arrivtime' + i);
-        atmDiv.text(future);
+        atmDiv.text(moment(future).format('H:mm'));
+        var mtaDiv =$('<div>');
+        mtaDiv.addClass('col-2')
+        mtaDiv.attr('id', 'mta' + i);
+        mtaDiv.text(mTa);
         rowDiv.append(trnDiv);
         rowDiv.append(nmeDiv);
         rowDiv.append(orgDiv);
         rowDiv.append(atmDiv);
+        rowDiv.append(mtaDiv);
         $('#arriv').append(rowDiv);
         $('#arrivtrain' + i).text(number);
     }
