@@ -1,0 +1,72 @@
+.panel-body a {
+    word-break: break-all;
+}
+
+#header {
+    background-color: black;
+    color: white;
+
+}
+
+#arrivHead{
+    border: ;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+}
+
+#arriv {
+    border:blue solid 3px;
+    font-family: 'Space Mono', monospace;
+
+}
+
+
+
+
+
+#arrivtrain {
+    border: black solid 1px;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+
+}
+
+#arrivname {
+    border: black solid 1px;
+    font-family: 'Space Mono', monospace;
+    text-align: left;
+}
+
+#arrivorig {
+    border: black solid 1px;
+    font-family: 'Space Mono', monospace;
+    text-align: left;
+}
+
+#arrivtime {
+    border: black solid 1px;
+    font-family: 'Space Mono', monospace;
+    text-align: left;
+}
+
+#depart {
+    border: red solid 2px;
+    font-family: 'Space Mono', monospace;
+    
+}
+
+.secline {
+    width: 112px;
+    height: 47px;
+    border-bottom: 2px solid red;
+    position: absolute;
+    text-align: center;
+}
+
+.minline {
+    width: 30px;
+    height: 27px;
+    border-bottom: 2px solid blue;
+    position: absolute;
+    text-align: center;
+}

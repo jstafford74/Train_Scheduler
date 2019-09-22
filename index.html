@@ -22,67 +22,10 @@
         <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
         <!-- Font Awesome CSS Icons (For cool glyphicons) -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
         <style>
-            .panel-body a {
-                word-break: break-all;
-            }
-
-            #header {
-                background-color: black;
-                color: white;
-
-            }
-
-            #arriv {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            .col-3 {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            #arrivtrain {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            #arrivname {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            #arrivorig {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            #arrivtime {
-                border: black solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            #depart {
-                border: orange solid 1px;
-                font-family: 'Space Mono', monospace;
-            }
-
-            .secline {
-                width: 112px;
-                height: 47px;
-                border-bottom: 2px solid red;
-                position: absolute;
-                text-align: center;
-            }
-
-            .minline {
-                width: 30px;
-                height: 27px;
-                border-bottom: 2px solid blue;
-                position: absolute;
-                text-align: center;
-            }
+            
         </style>
     </head>
 
@@ -107,14 +50,14 @@
 
         <!--Train Schedule-->
         <div class="container">
-            <div class="row">
+            <div class="row" id="arrivHead">
 
                 <div class="col-6" id="arriv">ARRIVALS
 
                     <div class="row">
-                        <div class="col-3" id="arrivtrain">Train #</div>
-                        <div class="col-3" id="arrivname">Train Name</div>
-                        <div class="col-3" id="arrivorigin">Origin</div>
+                        <div class="col-1" id="arrivtrain">#</div>
+                        <div class="col-4" id="arrivname">Train Name</div>
+                        <div class="col-4" id="arrivorigin">Origin</div>
                         <div class="col-3" id="arrivtime">Arrival Time</div>
                     </div>
 
@@ -123,10 +66,10 @@
                 <div class="col-6" id="depart">DEPARTURES
 
                     <div class="row">
-                        <div class="col-3" id="departtrain">Train #</div>
-                        <div class="col-3" id="departname">Train Name</div>
-                        <div class="col-3" id="departdest">Destination</div>
-                        <div class="col-3" id="departtime">Arrival Time</div>
+                        <div class="col-1" id="departtrain">#</div>
+                        <div class="col-4" id="departname">Train Name</div>
+                        <div class="col-4" id="departdest">Destination</div>
+                        <div class="col-3" id="departtime">Departure Time</div>
                     </div>
 
                 </div>
@@ -152,110 +95,15 @@
 
         <!-- Link to Moment.js should go here -->
         <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <script src="assets/javascript/clock.js"></script>
 
         <!-- Script -->
         <script>
 
 
-            function updateClock() {
-                var now = moment();
-                day = now.format("ddd, hA");
-                second = now.seconds();
-                minute = now.minutes();
-                hour = now.hours();
-
-                $('#hour').text(hour);                                                            //css("transform", "rotate(" + hour + "deg)");
-                $('#minute').text(minute);                                                        //css("transform", "rotate(" + minute + "deg)");
-                $('#second').text(second);                                                        //css("transform", "rotate(" + second + "deg)");
-            }
-
-            // setInterval(updateClock,1000);
-
-            function addSec() {
-
-                now2 = moment().format('MMMM Do YYYY, h:mm:ss a');
-                $('#date').text(now2);
-
-            }
-            function transLate() {
-
-                var pxl = moment().add(1, 's').format('s') * 10;
-
-                $('.secline').css('width', pxl + 'px');
 
 
-            }
-
-            var min = moment().format('mm') * 10;
-            $('.minline').css('width', min + 'px');
-
-            setInterval(transLate, 1000);
-
-            function run() {
-                setInterval(addSec, 1000);
-            }
-
-            function rando() {
-                var number = 1 + Math.floor(Math.random() * 100);
-                console.log(number);
-            }
-
-            function arrivals() {
-                for (i = 1; i < 16; i++) {
-                    var number = 1 + Math.floor(Math.random() * 100);
-                    var rowDiv = $('<div>');
-                    rowDiv.addClass('row');
-                    rowDiv.attr('id', i);
-                    var trnDiv = $('<div>');
-                    trnDiv.addClass('col-3');
-                    trnDiv.attr('id', 'arrivtrain' + i);
-                    var nmeDiv = $('<div>');
-                    nmeDiv.addClass('col-3');
-                    nmeDiv.attr('id', 'arrivname' + i);
-                    var orgDiv = $('<div>');
-                    orgDiv.addClass('col-3');
-                    orgDiv.attr('id', 'arrivorigin' + i);
-                    var atmDiv = $('<div>');
-                    atmDiv.addClass('col-3');
-                    atmDiv.attr('id', 'arrivttime' + i);
-                    rowDiv.append(trnDiv)
-                    rowDiv.append(nmeDiv)
-                    rowDiv.append(orgDiv)
-                    rowDiv.append(atmDiv)
-                    $('#arriv').append(rowDiv)
-                    $('#arrivtrain' + i).text(number);
-                }
-            }
-
-            function departures() {
-                for (i = 1; i < 16; i++) {
-                    var number = 1 + Math.floor(Math.random() * 100);
-                    var rowDiv = $('<div>');
-                    rowDiv.addClass('row');
-                    rowDiv.attr('id', i);
-                    var trnDiv = $('<div>');
-                    trnDiv.addClass('col-3');
-                    trnDiv.attr('id', 'depttrain' + i);
-                    var nmeDiv = $('<div>');
-                    nmeDiv.addClass('col-3');
-                    nmeDiv.attr('id', 'deptname' + i);
-                    var destDiv = $('<div>');
-                    destDiv.addClass('col-3');
-                    destDiv.attr('id', 'destination' + i);
-                    var dtmDiv = $('<div>');
-                    dtmDiv.addClass('col-3');
-                    dtmDiv.attr('id', 'departtime' + i);
-                    rowDiv.append(trnDiv)
-                    rowDiv.append(nmeDiv)
-                    rowDiv.append(destDiv)
-                    rowDiv.append(dtmDiv)
-                    $('#depart').append(rowDiv)
-                    $('#depttrain' + i).text(number);
-                }
-            }
-            arrivals();
-            departures();
-            run();
+           
         </script>
 
 </body>
