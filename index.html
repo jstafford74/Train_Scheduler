@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <style>
-            
+
         </style>
     </head>
 
@@ -35,80 +35,78 @@
         <!-- Jumbotron for Title -->
         <div class="jumbotron" id="header">
             <h1 class="text-center banner"><strong>Le Train Schedule</strong></h1>
-            <h3 class="text-center banner">Locomotif Transport Station</h3>
-            <div class="secline"></div>
-            <div class="minline"></div>
-            <div class="hero-circle">
-                <div class="hero-face">
-                    <div id="date" class="hero-date"></div>
-                    <div id="hour" class="hero-hour"></div>
-                    <div id="minute" class="hero-minute"></div>
-                    <div id="second" class="hero-second"></div>
-                </div>
-            </div>
+            <h3 class="text-center banner">LocoMotif Transport Station</h3>
+            <h4 class="text-center banner date"></h4>
+
+                <h5>Hour:<div class="hrline"></div>
+                </h5>
+                <h5>Minute:<div class="minline"></div>
+                </h5>
+                <h5>Second:<div class="secline"></div>
+                </h5>
         </div>
+    </div>
+    <!--Train Schedule-->
+    <div class="container">
+        <div class="row" id="arrivHead">
 
-        <!--Train Schedule-->
-        <div class="container">
-            <div class="row" id="arrivHead">
+            <div class="col-6" id="arriv">ARRIVALS
 
-                <div class="col-6" id="arriv">ARRIVALS
-
-                    <div class="row">
-                        <div class="col-1" id="arrivtrain">#</div>
-                        <div class="col-3" id="arrivname">Train Name</div>
-                        <div class="col-3" id="arrivorigin">Origin</div>
-                        <div class="col-3" id="arrivtime">Arrival Time</div>
-                        <div class="col-2" id="mta">MTA</div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-6" id="depart">DEPARTURES
-
-                    <div class="row">
-                        <div class="col-1" id="departtrain">#</div>
-                        <div class="col-3" id="departname">Train Name</div>
-                        <div class="col-3" id="departdest">Destination</div>
-                        <div class="col-3" id="departtime">Departure Time</div>
-                        <div class="col-2" id="mta">MTD</div>
-                    
-                    </div>
+                <div class="row">
+                    <div class="col-1" id="arrivtrain">#</div>
+                    <div class="col-4" id="arrivname">Train Name</div>
+                    <div class="col-3" id="arrivorigin">Origin</div>
+                    <div class="col-3" id="arrivtime">Arr.Time</div>
+                    <div class="col-1" id="mta">MTA</div>
 
                 </div>
 
             </div>
 
-            <div class="container" id="schedule">
+            <div class="col-6" id="depart">DEPARTURES
+
+                <div class="row">
+                    <div class="col-1" id="departtrain">#</div>
+                    <div class="col-4" id="departname">Train Name</div>
+                    <div class="col-3" id="departdest">Destination</div>
+                    <div class="col-3" id="departtime">Dep.Time</div>
+                    <div class="col-1" id="mta">MTD</div>
+
+                </div>
 
             </div>
 
         </div>
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Linked Script Sheets -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Firebase Core JavaScript Link -->
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-        <!-- Specific Firebase products we want (Database) -->
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.0/umd/popper.min.js"></script>
-        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-        <!-- Link to Moment.js should go here -->
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <script src="assets/javascript/clock.js"></script>
+        <div class="container" id="schedule">
 
-        <!-- Script -->
-        <script>
+        </div>
+
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Linked Script Sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Firebase Core JavaScript Link -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <!-- Specific Firebase products we want (Database) -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.0/umd/popper.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="assets/javascript/clock.js"></script>
+
+    <!-- Script -->
+    <script>
 
 
 
 
-           
-        </script>
+
+    </script>
 
 </body>
 

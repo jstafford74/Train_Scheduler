@@ -3,11 +3,15 @@
 }
 
 #header {
-    background-color: black;
+    background: black;
     color: white;
+    height: 325px;
 
 }
 
+.date{
+    color: rgb(150,0,100);
+}
 #arrivHead{
     border: ;
     font-family: 'Space Mono', monospace;
@@ -20,12 +24,16 @@
 
 }
 
-.col-1,.col-3,.col-4,.col-6{
+.col-1,.col-2,.col-3,.col-4,.col-6{
     border: black solid 1px;
 }
 
-.col-4{
+.col-3,.col-4{
     text-align: left;
+}
+
+.col-1{
+    text-align:center;
 }
 
 
@@ -62,16 +70,27 @@
 
 .secline {
     width: 112px;
-    height: 47px;
-    border-bottom: 2px solid red;
+    height: 5px;
+    border-bottom: red solid 10px;
+    border-radius:30%;
     position: absolute;
     text-align: center;
 }
 
 .minline {
     width: 30px;
-    height: 27px;
-    border-bottom: 2px solid blue;
+    height: 5px;
+    border-bottom: blue solid 10px;
+    border-radius:30%;
+    position: absolute;
+    text-align: center;
+}
+
+.hrline{
+    width: 30px;
+    height: 5px;
+    border-bottom: white solid 10px;
+    border-radius:30%;
     position: absolute;
     text-align: center;
 }
